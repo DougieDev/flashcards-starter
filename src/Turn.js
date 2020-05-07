@@ -15,11 +15,19 @@ class Turn {
   }
 
   evaluateGuess() {
-    
+    if (this.userGuess === this.card.correctAnswer) {
+      return this.giveFeedback(true)
+    } else {
+      return this.giveFeedback(false)
+    }
   }
 
-  giveFeedback() {
-
+  giveFeedback(answer) {
+    if (answer) {
+      return 'You are correct!'
+    } else {
+      return 'You are incorrect!'
+    }
   }
 }
 
