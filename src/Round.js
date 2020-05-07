@@ -19,7 +19,6 @@ class Round {
     if (!this.currentCard.answers.includes(guess)) {
       this.incorrectGuesses.push(this.currentCard.id)
     }
-
     if (this.currentCard.answers.includes(guess)) {
       this.correctGuesses++
     }
@@ -30,6 +29,13 @@ class Round {
 
   calculatePercentCorrect() {
     return (this.correctGuesses) * 100 / this.turns
+  }
+
+  endRound() {
+    console.log(this.deck.length)
+    if(this.deck.length === 0) {
+      return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    }
   }
 }
 
