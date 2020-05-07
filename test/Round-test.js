@@ -69,4 +69,11 @@ describe('Round', function() {
     round.takeTurn('potato');
     expect(round.calculatePercentCorrect()).to.equal(50)
   });
+
+  it('should tell the user when the round is over and what percentage of questions they got correct', function() {
+    round.takeTurn('sea otter')
+    round.takeTurn('spleen')
+    round.takeTurn('watching Netflix')
+    expect(round.endRound()).to.equal('** Round over! ** You answered 100% of the questions correctly!')
+  })
 });
