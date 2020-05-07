@@ -36,9 +36,9 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([])
   });
 
-  it('should create a new turn instance when a guess is made', function() {
-    expect(round.takeTurn('sea otter')).to.be.an.instanceof(Turn)
-  });
+  // it('should create a new turn instance when a guess is made', function() {
+  //   expect(round.takeTurn('sea otter')).to.be.an.instanceof(Turn)
+  // });
 
   it('should update the turn count regardless of whether the guess is correct or incorrect', function() {
     round.takeTurn('sea otter');
@@ -57,5 +57,16 @@ describe('Round', function() {
     round.takeTurn('donkey');
 
     expect(round.incorrectGuesses).to.deep.equal([1, 14]);
+  });
+
+  it('should check the users guess and give feedback when a turn is completed', function() {
+    expect(round.takeTurn('sea otter')).to.equal('You are correct!');
+    expect(round.takeTurn('ndkjgkjadng')).to.equal('You are incorrect!');
+  });
+
+  it('should calculate and return the percentage of incorrect guesses', function() {
+    round.takeTurn('sea otter');
+    round.takeTurn('potato');
+    expect(round.calculatePercentCorrect()).to.equal(50)
   });
 });

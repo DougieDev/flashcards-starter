@@ -6,6 +6,7 @@ class Round {
     this.turns = 0
     this.incorrectGuesses = []
     this.currentCard = this.deck.shift()
+    this.correctGuesses = 0
   }
 
   returnCurrentCard() {
@@ -13,18 +14,23 @@ class Round {
   }
 
   takeTurn(guess) {
+    const turn =  new Turn(guess, this.returnCurrentCard())
     this.turns++
     if (!this.currentCard.answers.includes(guess)) {
       this.incorrectGuesses.push(this.currentCard.id)
     }
+
+    if (this.currentCard.answers.includes(guess)) {
+      this.correctGuesses++
+    }
     this.currentCard = this.deck.shift()
-    return new Turn(guess, this.returnCurrentCard())
-// Feedback is returned regarding whether the guess is incorrect or correct
+    return turn.giveFeedback(guess)
+     // turn
   }
 
-  // turns() {
-  //   return this.turn
-  // }
+  calculatePercentCorrect() {
+    return (this.correctGuesses) * 100 / this.turns
+  }
 }
 
 module.exports = Round;

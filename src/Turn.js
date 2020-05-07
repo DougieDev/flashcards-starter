@@ -23,7 +23,7 @@ class Turn {
   }
 
   giveFeedback(answer) {
-    if (answer) {
+    if (answer === this.card.correctAnswer) {
       return 'You are correct!'
     } else {
       return 'You are incorrect!'
