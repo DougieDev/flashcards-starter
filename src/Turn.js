@@ -24,9 +24,9 @@ class Turn {
 
   giveFeedback(answer) {
     if (answer === this.card.correctAnswer) {
-      return 'You are correct!'
+      return 'CORRECT!'
     } else {
-      return 'You are incorrect!'
+      return 'INCORRECT!'
     }
   }
 }

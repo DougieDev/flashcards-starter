@@ -12,7 +12,7 @@ describe('Round', function() {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    deck = [card1, card2, card3]
+    deck = new Deck([card1, card2, card3])
     round = new Round(deck);
   });
 
@@ -36,10 +36,6 @@ describe('Round', function() {
     expect(round.incorrectGuesses).to.deep.equal([])
   });
 
-  // it('should create a new turn instance when a guess is made', function() {
-  //   expect(round.takeTurn('sea otter')).to.be.an.instanceof(Turn)
-  // });
-
   it('should update the turn count regardless of whether the guess is correct or incorrect', function() {
     round.takeTurn('sea otter');
 
@@ -60,8 +56,8 @@ describe('Round', function() {
   });
 
   it('should check the users guess and give feedback when a turn is completed', function() {
-    expect(round.takeTurn('sea otter')).to.equal('You are correct!');
-    expect(round.takeTurn('ndkjgkjadng')).to.equal('You are incorrect!');
+    expect(round.takeTurn('sea otter')).to.equal('CORRECT!');
+    expect(round.takeTurn('ndkjgkjadng')).to.equal('INCORRECT!');
   });
 
   it('should calculate and return the percentage of incorrect guesses', function() {
