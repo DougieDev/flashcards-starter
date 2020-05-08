@@ -19,7 +19,6 @@ describe('Game', function() {
   });
 
   it('should keep track of the current round', function() {
-    // expect(game.currentRound()).to.deep.equal({});
     game.start()
     expect(game.currentRound()).to.deep.equal(round);
   });
