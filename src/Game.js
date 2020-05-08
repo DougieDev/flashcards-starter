@@ -7,7 +7,6 @@ const Round = require('../src/Round')
 
 class Game {
   constructor() {
-    // this.deck = round.deck
     this.round = {};
   }
 
@@ -21,7 +20,7 @@ class Game {
   }
 
   currentRound() {
-    return this.round
+    return this.Round
   }
 
   start() {

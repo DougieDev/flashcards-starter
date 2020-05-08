@@ -35,10 +35,6 @@ describe('Turn', function() {
   it('should return an instantiation of Card', function() {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card)
-
     expect(turn.returnCard()).to.equal(card)
   });
-
-
-
 })
