@@ -34,7 +34,7 @@ describe('Turn', function() {
   });
 
   it('should return the users guess', function() {
-    expect(turn.returnGuess(), 'pug')
+    expect(turn.returnGuess(), "pug")
   });
 
   it('should return an instantiation of Card', function() {
