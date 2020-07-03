@@ -20,7 +20,7 @@ class Game {
   }
 
   currentRound() {
-    return this.Round
+    return this.round
   }
 
   start() {
